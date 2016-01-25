@@ -1,12 +1,12 @@
-#coding=utf-8
+# -*- coding: utf-8 -*-
 import cv2
 import numpy as np
-#CannyËã×Ó
+#Cannyè¾¹ç¼˜æ£€æµ‹
 
 img = cv2.imread("C:\Users\KSH\Pictures\gate.jpg", 0)
-#ÏÈÓÃ¸ßË¹Æ½»¬½µÔë
+#Cannyåªèƒ½å¤„ç†ç°åº¦å›¾ï¼Œè¯»å–å›¾åƒè¦è½¬æˆç°åº¦å›¾
 img = cv2.GaussianBlur(img, (3,3), 0)
-#Cannyº¯Êı£¬µÚÒ»¸ö²ÎÊıÊÇÍ¼Ïñ£¬¶şÈıÎªãĞÖµ£¬½Ï´óµÄãĞÖµ2¼ì²âÍ¼ÏñÖĞÃ÷ÏÔµÄ±ßÔµ£¬ãĞÖµ1ÆğÇ¿»¯Ğ§¹û
+#Cannyè®¾ç½®æœ€å¤§æœ€å°é˜ˆå€¼ï¼Œå…¶ä¸­apertureSizeé»˜è®¤ä¸º3
 canny = cv2.Canny(img, 50, 150)
 
 cv2.imshow("canny", canny)

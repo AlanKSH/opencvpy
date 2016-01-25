@@ -1,16 +1,16 @@
-#coding=utf-8
+# -*- coding: utf-8 -*-
 import cv2
 import numpy as np
 
 img = cv2.imread("C:\Users\KSH\Pictures\gate.jpg", 0)
 
-#sobel,1,0±íÊ¾·Ö±ğ¶Ôxy·½ÏòÉÏÇóµ¼£¬cv_16s±íÊ¾Ê¹ÓÃ16Î»ÓĞ·ûºÅµÄÊı¾İÀàĞÍ
+#sobelç®—å­ï¼Œ1ï¼Œ0ä»£è¡¨xyæ–¹å‘ä¸Šçš„å¯¼æ•°ï¼Œ16sè¡¨ç¤ºæŠŠå›¾åƒè½¬æ¢æˆ16bitå¤„ç†
 x = cv2.Sobel(img,cv2.CV_16S,1,0)
 y = cv2.Sobel(img,cv2.CV_16S,0,1)
-#×ª»Øunit8¸ñÊ½
+#é‡æ–°ç¼–ç¨‹unit8
 absX = cv2.convertScaleAbs(x)
 absY = cv2.convertScaleAbs(y)
-#½«Á½¸ö·½ÏòµÄÍ¼ÏñºÏ²¢£¬Êı×Ö±íÊ¾È¨ÖØ
+#ç»„æˆä¸¤ä¸ªæ–¹å‘ï¼Œæ•°å­—è¡¨ç¤ºæƒé‡
 dst = cv2.addWeighted(absX, 0.5, absY, 0.5, 0)
 
 cv2.imshow("absX", absX)

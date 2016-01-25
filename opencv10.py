@@ -1,11 +1,12 @@
-#coding=utf-8
+# -*- coding: utf-8 -*-
 import cv2
 import numpy as np
 
 """
-��ֵ�˲���������
-������ֵ�˲����ᴦ��������Сֵ�����ԾͲ����ܵ�������Ӱ�졣
-�෴�����ֱ�Ӳ���blur���о�ֵ�˲����򲻻�������Щ�����㣬�˲����ͼ����ܵ�������Ӱ�졣
+使用中值滤波消除噪点
+中值滤波器是非线性滤波器，对消除椒盐现象特别有用
+medianBlur的第一个参数是图像，第二个参数是滤波器的尺寸
+中值滤波不会处理最大最小值，所以不会受到噪声的影响
 """
 def salt(img, n):
     for k in range(n):

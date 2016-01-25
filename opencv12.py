@@ -1,14 +1,15 @@
-#coding=utf-8
+# -*- coding: utf-8 -*-
 import cv2
 import numpy as np
 
 img = cv2.imread("C:\Users\KSH\Pictures\gate.jpg", 0)
 
-#À­ÆÕÀ­Ë¹Ëã×Ó£¬ksizeÊÇËã×ÓµÄ´óÐ¡
+
 """
-Í¼ÏñÖÐµÄ±ßÔµÇøÓò£¬ÏñËØÖµ»á·¢Éú¡°ÌøÔ¾¡±£¬¶ÔÕâÐ©ÏñËØÇóµ¼£¬ÔÚÆäÒ»½×µ¼ÊýÔÚ±ßÔµÎ»ÖÃÎª¼«Öµ£¬Õâ¾ÍÊÇSobelËã×ÓÊ¹ÓÃµÄÔ­Àí¡ª¡ª¼«Öµ´¦¾ÍÊÇ±ßÔµ¡£
-Laplaceº¯ÊýÊµÏÖµÄ·½·¨ÊÇÏÈÓÃSobel Ëã×Ó¼ÆËã¶þ½×xºÍyµ¼Êý£¬ÔÙÇóºÍ
+å›¾åƒä¸­çš„è¾¹ç¼˜åŒºåŸŸï¼Œåƒç´ å€¼ä¼šçªå˜ï¼Œå¯¹å…¶æ±‚å¯¼ï¼Œä¸€é˜¶å¯¼æ•°ä¸ºæžå€¼ï¼Œè¿™æ˜¯sobelç®—å­çš„åŽŸç†
+äºŒé˜¶å¯¼æ•°ä¸º0ï¼Œlaplaceè®¡ç®—xyäºŒé˜¶å¯¼æ•°ä¹‹å’Œ
 """
+#ksizeæ˜¯ç®—å­çš„å¤§å°
 gray_lap = cv2.Laplacian(img,cv2.CV_16S,ksize =3 )
 dst = cv2.convertScaleAbs(gray_lap)
 

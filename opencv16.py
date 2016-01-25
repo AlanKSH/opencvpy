@@ -1,4 +1,5 @@
-﻿import cv2
+﻿# -*- coding: utf-8 -*-
+import cv2
 import numpy as np
 #概率霍夫变换
 

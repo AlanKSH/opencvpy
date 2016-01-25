@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import cv2
 
 img = cv2.imread("C:\Users\KSH\Pictures\coutour.jpg")

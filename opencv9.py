@@ -1,17 +1,15 @@
-#coding=utf-8
+# -*- coding: utf-8 -*-
 import cv2
 
 img = cv2.imread('C:\Users\KSH\Pictures\gate.jpg',0)
-#µÍÍ¨ÂË²¨Æ½»¬Í¼Ïñ
+#ä½é€šæ»¤æ³¢
 result = cv2.blur(img, (5,5))
 
 cv2.imshow("Origin", img)
 cv2.imshow("Blur", result)
 
-#¸ßË¹Ä£ºı
-#µÍÍ¨ÂË²¨Óë¸ßË¹ÂË²¨µÄ²»Í¬Ö®´¦ÔÚÓÚ£º
-#µÍÍ¨ÂË²¨ÖĞ£¬ÂË²¨Æ÷ÖĞÃ¿¸öÏñËØµÄÈ¨ÖØÊÇÏàÍ¬µÄ£¬¼´ÂË²¨Æ÷ÊÇÏßĞÔµÄ¡£
-#¶ø¸ßË¹ÂË²¨Æ÷ÖĞÏñËØµÄÈ¨ÖØÓëÆä¾àÖĞĞÄÏñËØµÄ¾àÀë³É±ÈÀı¡£
+#ä½é€šæ»¤æ³¢ä¸­æ¯ä¸ªåƒç´ çš„æƒé‡æ˜¯ç›¸åŒçš„
+#é«˜æ–¯æ»¤æ³¢ä¸­åƒç´ çš„æƒé‡ä¸è·ä¸­å¿ƒåƒç´ çš„è·ç¦»æˆæ­£æ¯”
 gaussianResult = cv2.GaussianBlur(img, (5,5), 1.5)
 cv2.imshow("Gauss", gaussianResult)
 

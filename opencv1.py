@@ -21,7 +21,7 @@ cv2.imshow("Image", img)
 emptyImage =np.zeros(img.shape)
 #复制原有的图像来获得一幅新图像
 emptyImage2 = img.copy()
-#获得原图像的副本
+#获得原图像的副本，获得灰度图
 emptyImage3 = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 #emptyImage3[...]=0  
 

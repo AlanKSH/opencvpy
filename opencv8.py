@@ -1,17 +1,17 @@
-#coding=utf-8
+# -*- coding: utf-8 -*-
 import cv2
 
 """
-¹Õ½Ç¼ì²â£º
-ÏÈÓÃÊ®×ÖĞÎÔªËØÅòÕÍ£¬Ö»»áÔÚÖ±Ïß±ßÔµÀ©ÕÅ£¬½Ç²»±ä
-ÔÙÓÃÁâĞÎ½á¹¹¸¯Ê´£¬Ö»ÓĞ¹Õ½Ç´¦ÊÕËõ£¬Ö±Ïß±ßÔµ²»±ä
-ÓÃXĞÎÅòÕÍÔ­Í¼Ïñ£¬½ÇµÄÅòÕÍÒª±È±ß¶à
-ÔÙÓÃ·½¿é¸¯Ê´£¬½Ç»Ö¸´Ô­×´£¬±ßÒª¸¯Ê´¸ü¶à
-Ïà¼õÖ»Ê£ÏÂ¹Õ½Ç´¦
+æ‹ç‚¹æ£€æµ‹
+å…ˆç”¨åå­—å½¢è†¨èƒ€ï¼Œè¾¹ç¼˜æ‰©å¼ ï¼Œä½†æ˜¯è§’ä¸å˜
+å†ç”¨è±å½¢è…èš€ï¼Œè§’æ”¶ç¼©ï¼Œè¾¹ç¼˜ä¸å˜
+ç”¨Xå½¢è†¨èƒ€åŸå›¾ï¼Œè§’è†¨èƒ€æ¯”è¾¹å¤š
+æ–¹å—è…èš€ï¼Œè§’æ¢å¤ï¼Œè¾¹è…èš€æ›´å¤š
+ä¸¤å›¾ç›¸å‡ï¼Œåªç•™ä¸‹è§’
 """
 image = cv2.imread("C:\Users\KSH\Pictures\gate.jpg",0)
 origin = cv2.imread("C:\Users\KSH\Pictures\gate.jpg")
-#¹¹Ôì5¡Á5µÄ½á¹¹ÔªËØ£¬·Ö±ğÎªÊ®×ÖĞÎ£¬ÁâĞÎ£¬·½ĞÎºÍxĞÎ
+#ç”Ÿæˆç»“æ„å…ƒç´ ï¼Œåˆ†åˆ«ä¸ºåå­—ã€è±å½¢ã€æ–¹å½¢ã€å’ŒXå½¢
 cross = cv2.getStructuringElement(cv2.MORPH_CROSS,(5,5))
 diamond = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
 diamond[0, 0] = 0
@@ -29,18 +29,19 @@ diamond[1, 4] = 0
 square = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
 x = cv2.getStructuringElement(cv2.MORPH_CROSS, (5,5))
 
-#Ê¹ÓÃcrossÅòÕÍÍ¼Ïñ
+#crossè†¨èƒ€
 result1 = cv2.dilate(image,cross)
-#Ê¹ÓÃÁâĞÎ¸¯Ê´Í¼Ïñ
+#è±å½¢è…èš€
 result1 = cv2.erode(result1, diamond)
-#Ê¹ÓÃXÅòÕÍÔ­Í¼Ïñ
+#Xè†¨èƒ€
 result2 = cv2.dilate(image, x)
-#Ê¹ÓÃ·½ĞÎ¸¯Ê´Í¼Ïñ
+#æ–¹å½¢è…èš€
 result2 = cv2.erode(result2, square)
-#½«Á½·ù±ÕÔËËãµÄÍ¼ÏñÏà¼õ»ñµÃ½Ç
+#ä¸¤å¹…é—­è¿ç®—å›¾åƒç›¸å‡è·å¾—è§’
 result = cv2.absdiff(result2,result1)
+#è·å¾—äºŒå€¼å›¾
 retval,result = cv2.threshold(result, 40, 255, cv2.THRESH_BINARY)
-#ÔÚÔ­Í¼ÉÏÓÃ°ë¾¶Îª5µÄÔ²È¦½«µã±ê³ö
+#ç”¨åŠå¾„ä¸º5çš„åœ†åœˆæ ‡å‡ºç‚¹
 for j in range(result.size):
     y = j / result.shape[0]
     x = j % result.shape[0]

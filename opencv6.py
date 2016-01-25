@@ -1,27 +1,24 @@
-#coding=utf-8
-#¿ªÔËËãÓë±ÕÔËËã
+# -*- coding: utf-8 -*-
 import cv2
 import numpy as np
 """
-¿ªÔËËãºÍ±ÕÔËËã¾ÍÊÇ½«¸¯Ê´ºÍÅòÕÍ°´ÕÕÒ»¶¨µÄ´ÎÐò½øÐÐ´¦Àí¡£
-±ÕÔËËãÓÃÀ´Á¬½Ó±»Îó·ÖÎªÐí¶àÐ¡¿éµÄ¶ÔÏó£¬¶ø¿ªÔËËãÓÃÓÚÒÆ³ýÓÉÍ¼ÏñÔëÒôÐÎ³ÉµÄ°ßµã¡£
-Òò´Ë£¬Ä³Ð©Çé¿öÏÂ¿ÉÒÔÁ¬ÐøÔËÓÃÕâÁ½ÖÖÔËËã¡£
-Èç¶ÔÒ»¸±¶þÖµÍ¼Á¬ÐøÊ¹ÓÃ±ÕÔËËãºÍ¿ªÔËËã£¬½«»ñµÃÍ¼ÏñÖÐµÄÖ÷Òª¶ÔÏó¡£
-Í¬Ñù£¬Èç¹ûÏëÏû³ýÍ¼ÏñÖÐµÄÔëÉù£¨¼´Í¼ÏñÖÐµÄ¡°Ð¡µã¡±£©£¬Ò²¿ÉÒÔ¶ÔÍ¼ÏñÏÈÓÃ¿ªÔËËãºóÓÃ±ÕÔËËã£¬²»¹ýÕâÑùÒ²»áÏû³ýÒ»Ð©ÆÆËéµÄ¶ÔÏó¡£
+å¼€è¿ç®—å’Œé—­è¿ç®—æ˜¯æŒ‡å°†è…èš€å’Œè†¨èƒ€æŒ‰ç…§ä¸€å®šé¡ºåºè¿›è¡Œå¤„ç†ï¼Œä¸å¯é€†ã€‚
+é—­è¿ç®—ç”¨æ¥é“¾æŽ¥è¢«åˆ†ä¸ºå°å—çš„å¯¹è±¡
+å¼€è¿ç®—ç”¨æ¥ç§»é™¤å›¾åƒå™ªéŸ³å½¢æˆçš„æ–‘ç‚¹
+å…ˆé—­åŽå¼€ï¼Œå¾—åˆ°å›¾åƒä¸­ä¸»è¦å¯¹è±¡
+å…ˆå¼€åŽé—­ï¼Œæ¶ˆé™¤ç ´ç¢Žå¯¹è±¡
 """
 
 img  = cv2.imread('C:\Users\KSH\Pictures\cat.jpg',0)
-#¶¨Òå½á¹¹ÔªËØ
+#ç”Ÿæˆç»“æž„å…ƒç´ 
 kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5,5))
 
-#±ÕÔËËã
+#é—­è¿ç®—
 closed = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
-#ÏÔÊ¾¸¯Ê´ºóµÄÍ¼Ïñ
 cv2.imshow("close", closed)
 
-#¿ªÔËËã
+#å¼€è¿ç®—
 opened = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
-#ÏÔÊ¾¸¯Ê´ºóµÄÍ¼Ïñ
 cv2.imshow("open", opened)
 
 cv2.waitKey(0)
